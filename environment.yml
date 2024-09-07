@@ -1,0 +1,6 @@
+name: ygo-ocr
+dependencies:
+  - python=3.12.5
+  - pip=24.2
+  - pip:
+    - -r requirements/requirements.txt
