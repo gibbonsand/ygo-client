@@ -1,14 +1,14 @@
 import json
 import requests
 
-from onedrive_api.onedrive_api import OneDriveAPI
+from onedrive_api.onedrive_api_client import OneDriveAPIClient
 import onedrive_api.constants as c
 
 
 if __name__ == '__main__':
     
     # DOwnload file from OneDrive
-    client = OneDriveAPI()
+    client = OneDriveAPIClient()
     client.authenticate()
 
     filename = 'Book 5.xlsx'
