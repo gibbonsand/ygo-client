@@ -20,5 +20,3 @@ EXTRA_FEATURES = [
     "Set_number",
     "1st edition",
 ]
-
-DB_NAME = 'ygo_card_collection.db'

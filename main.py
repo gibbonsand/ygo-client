@@ -2,7 +2,7 @@ import logging
 
 from download_onedrive import download_file
 from read_excel import read_excel
-from database import create_db, query_db
+#from database import create_db, query_db
 
 FILENAME = "Book 5.xlsx"
 OUTPUTPATH = "/Users/andrewgibbons/Downloads/" + FILENAME
@@ -34,7 +34,8 @@ def init_logger():
     logger.addHandler(console_handler)
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
+def main():
     init_logger()
 
     # Download database file
@@ -47,6 +48,8 @@ if __name__ == "__main__":
     df = read_excel(file_name=OUTPUTPATH,
                     sheet_name=SHEETNAME,
                     header=HEADER)
+    
+    print(df)
     
     """ create_db(df)
     query_db() """
