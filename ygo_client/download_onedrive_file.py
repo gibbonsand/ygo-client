@@ -1,7 +1,7 @@
 from onedrive_api.onedrive_api_client import OneDriveAPIClient
 
 
-def download_file(file_name: str, output_path: str = None) -> None:
+def download_onedrive_file(file_name: str, output_path: str = None) -> None:
     """ Download file from OneDrive """
     
     # Handle default output path

@@ -1,4 +1,4 @@
-name: ygo-ocr
+name: ygo-client
 dependencies:
   - python=3.12.5
   - pip=24.2
