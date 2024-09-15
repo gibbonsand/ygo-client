@@ -4,3 +4,10 @@ dependencies:
   - pip=24.2
   - pip:
     - -r requirements/requirements.txt
+variables:
+  FILE_NAME: "Book 5.xlsx"
+  SHEET_NAME: "YGO"
+  HEADER: True
+  OUTPUT_FOLDER: "/Users/andrewgibbons/Projects/output/ygo-ocr/"
+  LOGFILE_PATH: "/Users/andrewgibbons/Projects/logs/"
+  LOG_LEVEL: 20
