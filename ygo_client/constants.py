@@ -11,6 +11,9 @@ LOG_LEVEL = os.getenv('LOG_LEVEL', logging.INFO)
 
 # argparse config
 ARG_NAMES = HELP_MESSAGES.keys()
+VALUE_ARGS = {
+    "query_excel_file": str,
+}
 
 # File name and properties
 FILE_NAME = os.getenv('FILE_NAME', 'Book 5.xlsx')

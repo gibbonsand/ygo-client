@@ -1,4 +1,5 @@
 django==5.1.1
+openpyxl==3.1.5 # for pd.read_excel
 pandas==2.2.2
 pillow==10.4.0 # Needed for django ImageField1
 requests==2.32.3

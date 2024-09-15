@@ -61,10 +61,16 @@ def init_args(arg_names: list = c.ARG_NAMES):
 
     # Define each option with a long name that matches a key in HELP_MESSAGES
     for arg_name in arg_names:
-        # Use action="store_true" to indicate that this is a flag (on/off)
-        parser.add_argument(f"--{arg_name}",
-                            action="store_true",
-                            help=HELP_MESSAGES[arg_name])
+        if arg_name not in c.VALUE_ARGS.keys():
+            # Use action="store_true" to indicate that this is a flag (on/off)
+            parser.add_argument(f"--{arg_name}",
+                                action="store_true",
+                                help=HELP_MESSAGES[arg_name])
+        else:
+            # Value arguments take a value as defined in c.VALUE_ARGS
+            parser.add_argument(f"--{arg_name}",
+                                type=c.VALUE_ARGS[arg_name],
+                                help=HELP_MESSAGES[arg_name])
     
     return parser.parse_args()
 

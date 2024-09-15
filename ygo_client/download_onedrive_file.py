@@ -5,8 +5,6 @@ import ygo_client.constants as c
 from onedrive_api.onedrive_api_client import OneDriveAPIClient
 
 
-
-
 def download_onedrive_file(file_name: str = None,
                            output_path: str = None) -> None:
     """ Download file from OneDrive """

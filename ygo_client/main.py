@@ -1,13 +1,12 @@
 import logging
 import os
 
-from onedrive_api.onedrive_api_client import OneDriveAPIClient
 import ygo_client.constants as c
-from ygo_client.templates.help_messages import HELP_MESSAGES
-from ygo_client.download_onedrive_file import download_onedrive_file
 from ygo_client.setup_utils import init_args, init_logger, ensure_folders
-from excel_client.excel_client import ExcelClient
 
+# Import possible entrypoint functions
+from ygo_client.download_onedrive_file import download_onedrive_file
+from ygo_client.query_excel_file import query_excel_file
 
 def main():
     # Initialize logger
@@ -24,9 +23,17 @@ def main():
     logging.debug(f"Arguments: {vars(args)}")
 
     for arg_name in c.ARG_NAMES:
-        if getattr(args, arg_name):
+        arg_value = getattr(args, arg_name)
+
+        # Case for boolean arguments (store_true)
+        if arg_value is True:
             logging.info(f"Running entrypoint {arg_name}.")
             globals()[f"{arg_name}"]()
+        
+        # Case for non-boolean arguments (that take an argument)
+        elif arg_value and arg_value is not None:
+            logging.info(f"Running entrypoint {arg_name} with value {arg_value}.")
+            globals()[f"{arg_name}"](arg_value)
     
     if not any(getattr(args, arg_name) for arg_name in c.ARG_NAMES):
         logging.error(
