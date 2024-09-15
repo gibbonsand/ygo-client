@@ -1,6 +1,3 @@
-[submodule "onedrive_api"]
-	path = onedrive_api
-	url = git@github.com:gibbonsand/onedrive_api.git
 [submodule "excel-client"]
 	path = excel-client
 	url = git@github.com:gibbonsand/excel-client
