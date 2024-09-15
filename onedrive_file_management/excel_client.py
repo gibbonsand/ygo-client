@@ -7,7 +7,6 @@ class ExcelCient():
     def __init__(self):
         self.logger = logging.getLogger(__name__)
 
-
     @staticmethod
     def to_df(file_name: str, sheet_name: str, header: bool = True) -> pd.DataFrame:
         """
@@ -43,7 +42,6 @@ class ExcelCient():
             self.logger.error(f"Exception raised during file readout: {e}")
             raise Exception(f"Exception raised during file readout: {e}") from e
 
-
     def validate_data(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         Validate the input for missing values and perform datatype conversion.
@@ -73,8 +71,6 @@ class ExcelCient():
             self.logger.error(f"Exception raised during datatype conversion: {e}")
             raise ValueError(f"Exception raised during datatype conversion: {e}") from e
 
-
-
     def format_df(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         Formats a DataFrame by selecting features, filtering out empty rows,
@@ -97,7 +93,6 @@ class ExcelCient():
         formatted_df = self.validate_data(filtered_df)
 
         return formatted_df
-
 
     def load_excel(self, file_name: str, sheet_name: str, header: bool = True) -> pd.DataFrame:
         """

@@ -3,7 +3,7 @@ import logging
 import os
 
 from onedrive_file_management.download_onedrive import download_file
-from onedrive_file_management.read_excel import read_excel
+from excel_cient.excel_client import load_excel
 import templates.help_messages as t
 
 
