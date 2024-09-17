@@ -31,6 +31,13 @@ def ensure_folders(folder_list: list):
         LOG_DIR and BACKUP_DIR point to valid paths, the function will ensure those directories 
         exist, creating them if necessary.
     """
+    # Argument handling
+    folder_list = [folder_list] if not isinstance(folder_list, list) else folder_list
+    if not folder_list:
+        logging.warning(
+            "No folder list was provided to ensure_folders so it did nothing."
+        )
+        return
     
     for folder_type in folder_list:
         # Get the folder path from the environment variable corresponding to the folder type
