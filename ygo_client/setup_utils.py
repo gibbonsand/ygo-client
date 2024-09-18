@@ -21,8 +21,8 @@ def ensure_folders(folder_list: list):
                             variable names, where the values should represent the folder paths.
     
     Notes:
-        - If the environment variable for a given folder type is not set, the function will not create any
-          folder for that entry and will skip to the next item in the list.
+        - If the environment variable for a given folder type is not set, the function will not 
+          create any folder for that entry and will skip to the next item in the list.
         - If the environment variable is set but points to a path that does not exist, this function
           will create the necessary directories, including any intermediate directories.
 
@@ -38,11 +38,11 @@ def ensure_folders(folder_list: list):
             "No folder list was provided to ensure_folders so it did nothing."
         )
         return
-    
+
     for folder_type in folder_list:
         # Get the folder path from the environment variable corresponding to the folder type
         folder_path = os.environ.get(folder_type)
-        
+
         # If the environment variable is set, create the folder path
         if folder_path:
             # Create the directory (and intermediate directories) if they don't exist
@@ -64,7 +64,9 @@ def init_args(arg_names: list = c.ARG_NAMES):
     Returns:
         An object containing the parsed command-line arguments.
     """
-    parser = argparse.ArgumentParser(description="YGO collection client, database manager and utilities")
+    parser = argparse.ArgumentParser(
+        description="YGO collection client, database manager and utilities"
+    )
 
     # Define each option with a long name that matches a key in HELP_MESSAGES
     for arg_name in arg_names:
@@ -78,7 +80,7 @@ def init_args(arg_names: list = c.ARG_NAMES):
             parser.add_argument(f"--{arg_name}",
                                 type=c.VALUE_ARGS[arg_name],
                                 help=HELP_MESSAGES[arg_name])
-    
+
     return parser.parse_args()
 
 
@@ -107,7 +109,7 @@ def init_logger(log_level: int = logging.INFO,
         file_handler.setFormatter(formatter)
         file_handler.setLevel(log_level)
         logger.addHandler(file_handler)
-    
+
     # Stream handler
     if log_to_stream:
         stream_handler = logging.StreamHandler()
