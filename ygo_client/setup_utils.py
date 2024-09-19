@@ -1,3 +1,6 @@
+# setup_utils.py
+""" Submodule for setting up utilities. required by ygo_client """
+
 import argparse
 import logging
 import os
@@ -49,7 +52,8 @@ def ensure_folders(folder_list: list):
             Path(folder_path).mkdir(parents=True, exist_ok=True)
         else:
             logging.warning(
-                f"No environment variable found for {folder_type}, defaulting to Downloads directory."
+                "No environment variable found for %f, defaulting to Downloads \
+                    directory.", folder_type
             )
 
 
@@ -70,7 +74,7 @@ def init_args(arg_names: list = c.ARG_NAMES):
 
     # Define each option with a long name that matches a key in HELP_MESSAGES
     for arg_name in arg_names:
-        if arg_name not in c.VALUE_ARGS.keys():
+        if arg_name not in c.VALUE_ARGS:
             # Use action="store_true" to indicate that this is a flag (on/off)
             parser.add_argument(f"--{arg_name}",
                                 action="store_true",
